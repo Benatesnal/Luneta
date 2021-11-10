@@ -17,3 +17,5 @@
 3. C botoiari heman konfigurazio orritik ateratzeko (Konfigurazio orrira bueltatu nahi bada bateria itzali eta hasieratik hasi
 4. D boiari heman eskerreran emateko edo B botoiari eskuinera mugitzeko
 5. Bateriaren botoiari heman itzaltzalko
+
+![csv sample](images/irudia.png)
