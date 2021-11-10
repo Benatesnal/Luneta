@@ -1,62 +1,19 @@
 # Luneta
-# DotNet GitStats
+# Elementuak
 
-![DotNet GitStats CI](https://github.com/leansoftX/dotnet-gitstats/workflows/DotNet%20GitStats%20CI/badge.svg)
+- Arduino UNO
+- JoyStick Shiled 
+- Pasos pausoko motorra (28BYJ-48)
+- 2 Led
+- 2 erresistentzia
+- LCD
+- Bateria mugikorra
+- Protoboard-a
 
-DotNet GitStats is a command line tool made with DotNet Core, it was used for commit log statistic from a git repo.
+## Funtzionamendua
 
-Thanks to [libgit2sharp](https://github.com/libgit2/libgit2sharp),
-It could fetch every git commit logs from a standard git repo, and extract commit data from these logs.
-
-Also, it could calculate line changes between two commits, for example, lines added and lines deleted number.
-
-Finally, it will generage a csv or json file based on output parameter.
-
-## Supported Platform
-
-- Windows
-- Linux
-- MacOS
-
-## Usage
-
-```bash
-# windows
-./DotNetGitStats.exe -d <local repo dir> -o <output file path>
-
-# linux
-./DotNetGitStats -d <repo dir> -o <output path>
-
-# maxOS
-./DotNetGitStats -d <repo dir> -o <output path>
-```
-
-## Example
-
-```bash
-# get a csv result file
-./DotNetGitStats.exe -d repos\BoatHouse -o result.csv
-
-# get a json result file
-./DotNetGitStats.exe -d repos\BoatHouse -o result.json
-```
-
-## Data Columns Provided in Output File
-
-- `CommitHash` current git comit id
-- `AuthorName`  current commit's author name
-- `AuthorEmail` current commit's author email
-- `MessageShort` current commit's msg in short line format
-- `AuthorDate` commit.Author.When.DateTime
-- `LinesAdded` numbers of line added compared with parent commit
-- `LinesDeleted` numbers of line added  compared with parent commit
-
-## Generated File Sample
-
-![csv sample](images/irudia.png)
-
-## TODOs
-
-- [x] Set up Github action for CI
-- [x] Add README content
-- [x] Create POWER BI report using csv file
+1. Bateriaren botoiari heman piztutzeko
+2. Joystick-arekin mugitzea nahi duzun diztatzia jartzen duzu LCD pantailan
+3. C botoiari heman konfigurazio orritik ateratzeko (Konfigurazio orrira bueltatu nahi bada bateria itzali eta hasieratik hasi
+4. D boiari heman eskerreran emateko edo B botoiari eskuinera mugitzeko
+5. Bateriaren botoiari heman itzaltzalko
