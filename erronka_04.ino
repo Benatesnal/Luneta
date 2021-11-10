@@ -1,12 +1,5 @@
 /*  ----------------------------------------------------------------
-  Pausoz pausoko motorra alde batetara 4095 pauso mugitu eta ondoren
-  beste aldera pauso berak mugitzen dituen programa.
-  Motorraren kontrola PAUSO ERDIKO KONTOLAREKIN diseinatua dago.
-  by Axpi
-  This example code is in the public domain.
-  Eskerrak  http://www.prometec.net/motor-28byj-48                                        Prog_4_2
-
-  Stepperra: 28BYJ-48 con Arduino
+  Pausoz pausoko motorra , joyStick Shield-a eta LCD pantailaren bitartez  mahai mugikorra aurrera eta atzera mugituko da LCD pantaillan jarritako diztatzia. 
   --------------------------------------------------------------------
 */
 #include <LiquidCrystal_I2C.h>
@@ -16,12 +9,12 @@
 #define IN4  10
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-
+//Konfiguratu botoia
 const int buttonPinB = 3;
 const int buttonPinD = 5;
 
-const int buttonPinC = 4;  //Konfiguratu botoia
-
+const int buttonPinC = 4;  
+//Konfiguratu Led argia
 const int ledPin = 9;
 int x = 0; // x ardatzaren irakurketa aldagaia
 
@@ -31,7 +24,7 @@ int Steps = 0;
 int i = 0; // Konfigurazio aldagaia
 float zm = steps_left * 0.0056;
 
-// Pauso erdiko Matrizea. Beste kontroletarako matrizea aldatu.
+// Pauso bikoitzeko Matrizea
 
 ; int Paso [ 4 ][ 4 ] =
 { {1, 0, 0, 0},
@@ -69,7 +62,7 @@ void setup()
     lcd.print("Mugitu: ");
     lcd.print(zm);
     lcd.print("mm");
-
+//Joystika konfiguratu
     if (x < 450) {
       steps_left = steps_left + 10;
       zm = steps_left * 0.0056;
@@ -79,6 +72,7 @@ void setup()
       lcd.print(zm);
       lcd.print(" mm");
     }
+    //LCD-a konfiguratu
     if (x > 600) {
       steps_left = steps_left - 10;
       zm = steps_left * 0.0056;
@@ -131,6 +125,7 @@ void loop()
 }
 void SetDirection()
 {
+  //Mahairen direkzioa definitzeko
   if (Direction == 0) {}
 
   else if (Direction == 1) {
@@ -170,6 +165,6 @@ void mugitu()
     steps_left-- ;  // Pauso bat gutxiago egin da.
     delay (1) ;
   }
-  digitalWrite(ledPin, 0);
-  steps_left = zm / 0.0056;
+  digitalWrite(ledPin, 0); // Gelditzen denean led bat piztu eta beste itzali egiten da
+  steps_left = zm / 0.0056; //Gelditzean pantailan jarritako pauso kantitera bueltatzen da
 }
